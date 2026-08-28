@@ -5,7 +5,6 @@ import { ArrowUpRight, Plus, Minus } from "lucide-react"
 import Image from "next/image"
 import { faqs } from "@/data"
 import { FAQ } from "@/types"
-import { SectionDivider } from "@/components/ui/section-divider"
 
 function FAQItem({ item, defaultOpen }: { item: FAQ; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(!!defaultOpen)
