@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export function Stats() {
   return (
-    <section className="w-full bg-[#0A0A0A] pb-20 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-background pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
 
         <div className="relative rounded-[2.5rem] overflow-hidden">

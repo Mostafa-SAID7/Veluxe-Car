@@ -1,16 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
-
-const navLinks = ["Home", "Fleet", "Services", "Terms", "About Us", "Contact"]
+import { navLinks } from "@/data"
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#0A0A0A] overflow-hidden pb-0">
+    <footer className="relative bg-background overflow-hidden pb-0">
 
       {/* Watermark */}
       <div className="w-full overflow-hidden select-none pointer-events-none" aria-hidden>
         <span
-          className="block text-center font-extrabold tracking-tighter text-[#111111] leading-none"
+          className="block text-center font-extrabold tracking-tighter text-foreground/5 leading-none"
           style={{ fontSize: "clamp(60px, 18vw, 200px)" }}
         >
           Veluxe

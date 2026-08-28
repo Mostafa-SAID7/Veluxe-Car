@@ -6,6 +6,7 @@ import { Stats } from "@/components/stats"
 import { Testimonials } from "@/components/testimonials"
 import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
+import { SectionDivider } from "@/components/ui/section-divider"
 
 /**
  * Veluxe Section Divider System
@@ -26,7 +27,7 @@ import { Footer } from "@/components/footer"
  */
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden" style={{ background: "#0A0A0A" }}>
+    <main className="min-h-screen overflow-x-hidden bg-background">
       <Header />
 
       {/* ══ 1. HERO — DARK ══════════════════════════════════════════════ */}
@@ -34,47 +35,38 @@ export default function Home() {
         <Hero />
       </div>
 
-      {/* ══ 2. FLEET — LIGHT  (lifts off the dark hero) ════════════════
-           Rounded top corners reveal the dark hero background in corners. */}
-      <div
-        className="relative z-10 bg-[#F5F5F5] rounded-t-[3rem] -mt-12"
-        style={{ boxShadow: "0 -8px 60px rgba(0,0,0,0.5)" }}
-      >
-        <Pricing />
+      {/* ══ 2. FLEET — MUTED  (center tab overlap) ════════════════ */}
+      <div className="relative z-10 -mt-12 text-muted">
+        <SectionDivider />
+        <div className="bg-muted relative z-20">
+          <Pricing />
+        </div>
       </div>
 
-      {/* ══ 3. FEATURES — DARK  (lifts off the light fleet) ════════════
-           Rounded top corners reveal the light fleet background in corners. */}
-      <div
-        className="relative z-20 bg-[#0A0A0A] rounded-t-[3rem] -mt-12"
-        style={{ boxShadow: "0 -8px 60px rgba(0,0,0,0.6)" }}
-      >
-        <Features />
-        {/* Stats continues on the same dark surface — no divider */}
-        <Stats />
+      {/* ══ 3. FEATURES — DARK base  (lifts off the light fleet) ════════ */}
+      <div className="relative z-20 -mt-12 text-background">
+        <SectionDivider />
+        <div className="bg-background relative z-20">
+          <Features />
+          <Stats />
+        </div>
       </div>
 
-      {/* ══ 4. TESTIMONIALS — LIGHT  (lifts off the dark section) ══════
-           Rounded top corners reveal the dark background in corners. */}
-      <div
-        className="relative z-30 bg-[#F5F5F5] rounded-t-[3rem] -mt-12"
-        style={{ boxShadow: "0 -8px 60px rgba(0,0,0,0.5)" }}
-      >
-        <Testimonials />
-
-        {/* CTA (FAQ + road + contact form) continues on light, then
-            internally transitions to dark with its own rounded panel */}
-        <CTA />
+      {/* ══ 4. TESTIMONIALS — MUTED  (lifts off the dark section) ══════ */}
+      <div className="relative z-30 -mt-12 text-muted">
+        <SectionDivider />
+        <div className="bg-muted relative z-20">
+          <Testimonials />
+          <CTA />
+        </div>
       </div>
 
-      {/* ══ 5. FOOTER — DARK  (lifts off the light CTA) ════════════════
-           Large rounded top creates the "dark notch" seen at the bottom
-           of the FAQ/CTA section in the screenshots. */}
-      <div
-        className="relative z-40 bg-[#0A0A0A] rounded-t-[3rem] -mt-12"
-        style={{ boxShadow: "0 -8px 60px rgba(0,0,0,0.8)" }}
-      >
-        <Footer />
+      {/* ══ 5. FOOTER — DARK base  (lifts off the light CTA) ═══════════ */}
+      <div className="relative z-40 -mt-12 text-background">
+        <SectionDivider />
+        <div className="bg-background relative z-20">
+          <Footer />
+        </div>
       </div>
     </main>
   )

@@ -52,24 +52,24 @@
 }
 
 .light {
-  /* Inverse if light mode is toggled, though design is dark-first */
-  --background: oklch(0.98 0 0);
-  --foreground: oklch(0.12 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.12 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.12 0 0);
-  --primary: oklch(0.12 0 0);
+  /* Strong light mode with good contrast */
+  --background: oklch(0.98 0 0);      /* Pure white #FAFAFA */
+  --foreground: oklch(0.08 0 0);      /* Near black #121212 */
+  --card: oklch(0.94 0 0);            /* Light gray card #EAEAEA */
+  --card-foreground: oklch(0.08 0 0);
+  --popover: oklch(0.98 0 0);
+  --popover-foreground: oklch(0.08 0 0);
+  --primary: oklch(0.08 0 0);         /* Black buttons */
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.9 0 0);
-  --secondary-foreground: oklch(0.12 0 0);
-  --muted: oklch(0.9 0 0);
-  --muted-foreground: oklch(0.4 0 0);
-  --accent: oklch(0.9 0 0);
-  --accent-foreground: oklch(0.12 0 0);
-  --border: oklch(0.9 0 0);
-  --input: oklch(0.9 0 0);
-  --ring: oklch(0.12 0 0);
+  --secondary: oklch(0.92 0 0);
+  --secondary-foreground: oklch(0.08 0 0);
+  --muted: oklch(0.93 0 0);           /* #EDEDED-ish */
+  --muted-foreground: oklch(0.42 0 0); /* Medium gray text */
+  --accent: oklch(0.92 0 0);
+  --accent-foreground: oklch(0.08 0 0);
+  --border: oklch(0.85 0 0);
+  --input: oklch(0.92 0 0);
+  --ring: oklch(0.08 0 0);
 }
 
 @theme inline {
@@ -142,5 +142,43 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #555555;
+  }
+}
+
+/* ── View Transition: circular reveal from theme toggle button ── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+  animation: theme-circle-reveal 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.dark::view-transition-new(root) {
+  animation: theme-circle-reveal-dark 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes theme-circle-reveal {
+  from {
+    clip-path: circle(0% at var(--theme-toggle-x, 90%) var(--theme-toggle-y, 5%));
+  }
+  to {
+    clip-path: circle(150% at var(--theme-toggle-x, 90%) var(--theme-toggle-y, 5%));
+  }
+}
+
+@keyframes theme-circle-reveal-dark {
+  from {
+    clip-path: circle(0% at var(--theme-toggle-x, 90%) var(--theme-toggle-y, 5%));
+  }
+  to {
+    clip-path: circle(150% at var(--theme-toggle-x, 90%) var(--theme-toggle-y, 5%));
   }
 }

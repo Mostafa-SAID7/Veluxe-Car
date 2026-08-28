@@ -1,0 +1,12 @@
+version: 2
+updates:
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "next"
+        versions:
+          - ">= 16.0.0" # Ignore major updates to avoid breaking changes automatically

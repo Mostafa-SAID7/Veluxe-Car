@@ -1,5 +1,6 @@
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Youtube, Instagram, Twitter } from "lucide-react"
 import Image from "next/image"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 export function Hero() {
   return (
@@ -10,10 +11,10 @@ export function Hero() {
           src="/hero.jpg"
           alt="Luxury car on salt flats"
           fill
-          className="object-cover opacity-55"
+          className="object-cover opacity-80"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/10 to-transparent" />
       </div>
 
       {/* Stats — top right */}
@@ -29,11 +30,15 @@ export function Hero() {
       </div>
 
       {/* Social icons — left */}
-      <div className="absolute left-6 top-1/2 -translate-y-1/2 z-10 hidden md:flex flex-col gap-4">
-        {["▶", "◈", "◉"].map((icon, i) => (
-          <div key={i} className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center cursor-pointer hover:bg-white/20 transition text-white/60 text-xs">
-            {icon}
-          </div>
+      <div className="absolute left-6 top-1/2 -translate-y-1/2 z-10 hidden md:flex flex-col gap-3">
+        {[
+          { icon: Youtube, label: "YouTube" },
+          { icon: Instagram, label: "Instagram" },
+          { icon: Twitter, label: "Twitter" },
+        ].map(({ icon: Icon, label }) => (
+          <button key={label} aria-label={label} className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center cursor-pointer hover:bg-white/25 transition text-white/70 hover:text-white">
+            <Icon size={15} />
+          </button>
         ))}
       </div>
 
@@ -45,28 +50,54 @@ export function Hero() {
           </h1>
         </div>
 
-        {/* Booking Form */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/15 p-2 rounded-full flex flex-col sm:flex-row gap-2 items-stretch sm:items-center w-full shadow-2xl">
+        {/* Booking Form — always dark pill */}
+        <div className="bg-[#222222] p-2 rounded-full flex flex-col sm:flex-row gap-2 items-stretch sm:items-center w-full shadow-2xl mt-12">
 
-          <div className="flex-1 bg-white rounded-full px-5 py-3.5 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition min-w-0">
-            <span className="text-gray-500 text-sm font-medium truncate">Location</span>
-            <span className="text-gray-400 text-xs ml-2 flex-shrink-0">⌄</span>
+          <div className="flex-1 min-w-0">
+            <Select>
+              <SelectTrigger className="w-full bg-background text-foreground/60 border-0 rounded-full px-6 py-7 shadow-none hover:bg-muted transition text-sm font-medium focus:ring-0 focus:ring-offset-0">
+                <SelectValue placeholder="Location" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="kyiv">Kyiv</SelectItem>
+                <SelectItem value="lviv">Lviv</SelectItem>
+                <SelectItem value="odesa">Odesa</SelectItem>
+                <SelectItem value="airport">Airport</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
-          <div className="flex-1 bg-white rounded-full px-5 py-3.5 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition min-w-0">
-            <span className="text-gray-500 text-sm font-medium truncate">Pick-up Date</span>
-            <span className="text-gray-400 text-xs ml-2 flex-shrink-0">⌄</span>
+          <div className="flex-1 min-w-0">
+            <Select>
+              <SelectTrigger className="w-full bg-background text-foreground/60 border-0 rounded-full px-6 py-7 shadow-none hover:bg-muted transition text-sm font-medium focus:ring-0 focus:ring-offset-0">
+                <SelectValue placeholder="Pick-up Date" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="today">Today</SelectItem>
+                <SelectItem value="tomorrow">Tomorrow</SelectItem>
+                <SelectItem value="next-week">Next Week</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
-          <div className="flex-1 bg-white rounded-full px-5 py-3.5 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition min-w-0">
-            <span className="text-gray-500 text-sm font-medium truncate">Return Date</span>
-            <span className="text-gray-400 text-xs ml-2 flex-shrink-0">⌄</span>
+          <div className="flex-1 min-w-0">
+            <Select>
+              <SelectTrigger className="w-full bg-background text-foreground/60 border-0 rounded-full px-6 py-7 shadow-none hover:bg-muted transition text-sm font-medium focus:ring-0 focus:ring-offset-0">
+                <SelectValue placeholder="Return Date" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="1-day">1 Day</SelectItem>
+                <SelectItem value="3-days">3 Days</SelectItem>
+                <SelectItem value="1-week">1 Week</SelectItem>
+                <SelectItem value="1-month">1 Month</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
-          <button className="bg-black text-white rounded-full px-6 py-3.5 flex items-center justify-center gap-2 hover:bg-black/80 transition-all flex-shrink-0 font-bold text-sm">
+          <button className="bg-foreground text-background rounded-full px-8 py-4 flex items-center justify-center gap-3 hover:bg-foreground/90 transition-all flex-shrink-0 font-extrabold text-sm">
             Order Car
-            <div className="bg-white/20 p-1.5 rounded-full">
-              <ArrowUpRight size={14} />
+            <div className="bg-background/20 w-6 h-6 rounded-full flex items-center justify-center">
+              <ArrowUpRight size={12} className="text-background" />
             </div>
           </button>
 

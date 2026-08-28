@@ -1,45 +1,10 @@
 import { ArrowUpRight, User, Star } from "lucide-react"
 import Image from "next/image"
-
-const cars = [
-  {
-    brand: "BMW",
-    model: "3 SERIES (G20)",
-    image: "/fleet1.jpg",
-    passengers: 5,
-    rating: 5.0,
-    year: "2022",
-    transmission: "automatic",
-    fuel: "gasoline",
-    price: "65 €",
-  },
-  {
-    brand: "MERCEDES-BENZ",
-    model: "E-CLASS W213",
-    image: "/fleet2.jpg",
-    passengers: 5,
-    rating: 5.0,
-    year: "2022",
-    transmission: "automatic",
-    fuel: "gasoline",
-    price: "75 €",
-  },
-  {
-    brand: "BMW",
-    model: "3 SERIES (G20 LCI)",
-    image: "/fleet1.jpg",
-    passengers: 5,
-    rating: 5.0,
-    year: "2022",
-    transmission: "automatic",
-    fuel: "gasoline",
-    price: "70 €",
-  },
-]
+import { cars } from "@/data"
 
 export function Pricing() {
   return (
-    <section id="fleet" className="w-full bg-[#F5F5F5] pt-16 pb-20 px-4 sm:px-6 lg:px-8">
+    <section id="fleet" className="w-full bg-muted pt-16 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
 
         {/* Header: image card + title */}
@@ -65,10 +30,10 @@ export function Pricing() {
 
           {/* Right: title + description */}
           <div className="flex flex-col justify-center space-y-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-black leading-tight uppercase tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground leading-tight uppercase tracking-tight">
               RENTAL HITS — CARS THAT ARE BOOKED FIRST!
             </h2>
-            <p className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-md">
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-md">
               Popular cars that are in highest demand among our clients. They are booked first — for comfort, reliability and style.
             </p>
           </div>
@@ -79,35 +44,35 @@ export function Pricing() {
           {cars.map((car, index) => (
             <div
               key={index}
-              className="bg-[#EAEAEA] rounded-[2rem] p-5 hover:bg-[#E0E0E0] transition-colors duration-300 flex flex-col"
+              className="bg-card rounded-[2rem] p-5 hover:bg-muted transition-colors duration-300 flex flex-col"
             >
               <div className="text-center mb-4">
-                <p className="text-black font-semibold text-xs uppercase tracking-wide">{car.brand}</p>
-                <h4 className="text-black font-medium text-sm">{car.model}</h4>
+                <p className="text-foreground font-semibold text-xs uppercase tracking-wide">{car.brand}</p>
+                <h4 className="text-foreground font-medium text-sm">{car.model}</h4>
               </div>
 
-              <div className="relative h-32 w-full mb-4 mix-blend-multiply flex-shrink-0">
+              <div className="relative h-32 w-full mb-4 flex-shrink-0">
                 <Image src={car.image} alt={`${car.brand} ${car.model}`} fill className="object-contain" />
               </div>
 
-              <div className="flex items-center gap-3 text-xs text-gray-500 font-medium mb-1.5">
+              <div className="flex items-center gap-3 text-xs text-muted-foreground font-medium mb-1.5">
                 <div className="flex items-center gap-1">
                   <User size={12} /> {car.passengers}
                 </div>
                 <div className="flex items-center gap-1">
-                  <Star size={12} className="fill-black text-black" /> {car.rating}
+                  <Star size={12} className="fill-foreground text-foreground" /> {car.rating}
                 </div>
               </div>
 
-              <p className="text-xs text-gray-400 mb-4">{car.year} • {car.transmission} • {car.fuel}</p>
+              <p className="text-xs text-muted-foreground mb-4">{car.year} • {car.transmission} • {car.fuel}</p>
 
               <div className="flex items-end justify-between mt-auto">
                 <div>
-                  <span className="text-black font-extrabold text-lg">{car.price}</span>
-                  <span className="text-black text-xs font-medium"> / day</span>
+                  <span className="text-foreground font-extrabold text-lg">{car.price}</span>
+                  <span className="text-foreground text-xs font-medium"> / day</span>
                 </div>
-                <button className="w-10 h-10 bg-black rounded-full flex items-center justify-center cursor-pointer hover:bg-black/80 transition group flex-shrink-0">
-                  <ArrowUpRight size={16} className="text-white group-hover:scale-110 transition" />
+                <button className="w-10 h-10 bg-foreground rounded-full flex items-center justify-center cursor-pointer hover:bg-foreground/80 transition group flex-shrink-0">
+                  <ArrowUpRight size={16} className="text-background group-hover:scale-110 transition" />
                 </button>
               </div>
             </div>
@@ -116,7 +81,7 @@ export function Pricing() {
 
         {/* CTA button */}
         <div className="flex justify-center md:justify-end">
-          <button className="bg-black text-white px-8 py-3.5 rounded-full font-bold text-sm hover:bg-black/80 transition">
+          <button className="bg-foreground text-background px-8 py-3.5 rounded-full font-bold text-sm hover:bg-foreground/80 transition">
             Go to fleet
           </button>
         </div>
