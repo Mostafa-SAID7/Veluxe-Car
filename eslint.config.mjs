@@ -6,4 +6,11 @@ export default defineConfig([
   ...nextVitals,
   ...nextTypescript,
   globalIgnores([".next/**", "node_modules/**"]),
+  {
+    settings: {
+      react: {
+        version: "19.2.8"
+      }
+    }
+  }
 ])
