@@ -1,101 +1,126 @@
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Check } from "lucide-react"
-
-const tiers = [
-  {
-    name: "Starter",
-    price: "Free",
-    description: "Perfect for casual car owners",
-    features: [
-      "Access to community forum",
-      "Basic maintenance guides",
-      "Monthly newsletter",
-      "Limited expert consultations",
-    ],
-    cta: "Get Started",
-    highlighted: false,
-  },
-  {
-    name: "Pro",
-    price: "$9.99",
-    period: "/month",
-    description: "For dedicated car enthusiasts",
-    features: [
-      "Everything in Starter",
-      "Priority expert support",
-      "Advanced maintenance tracking",
-      "Exclusive video tutorials",
-      "Personalized recommendations",
-      "Ad-free experience",
-    ],
-    cta: "Start Free Trial",
-    highlighted: true,
-  },
-  {
-    name: "Premium",
-    price: "$19.99",
-    period: "/month",
-    description: "For professional mechanics",
-    features: [
-      "Everything in Pro",
-      "Unlimited consultations",
-      "Business profile listing",
-      "Client management tools",
-      "Revenue sharing program",
-      "Priority feature requests",
-    ],
-    cta: "Contact Sales",
-    highlighted: false,
-  },
-]
+import { Card, CardContent } from "@/components/ui/card"
+import { ArrowUpRight, User, Star } from "lucide-react"
+import Image from "next/image"
 
 export function Pricing() {
+  const cars = [
+    {
+      brand: "BMW",
+      model: "3 SERIES (G20)",
+      image: "/fleet1.jpg",
+      passengers: 5,
+      rating: 5.0,
+      year: "2022",
+      transmission: "automatic",
+      fuel: "gasoline",
+      price: "65 €"
+    },
+    {
+      brand: "MERCEDES-BENZ",
+      model: "E-CLASS W213",
+      image: "/fleet2.jpg",
+      passengers: 5,
+      rating: 5.0,
+      year: "2022",
+      transmission: "automatic",
+      fuel: "gasoline",
+      price: "75 €"
+    },
+    {
+      brand: "BMW",
+      model: "3 SERIES (G20 LCI)",
+      image: "/fleet1.jpg",
+      passengers: 5,
+      rating: 5.0,
+      year: "2022",
+      transmission: "automatic",
+      fuel: "gasoline",
+      price: "70 €"
+    }
+  ]
+
   return (
-    <section id="pricing" className="py-20 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Choose the perfect plan for your needs. Always flexible to upgrade or downgrade.
-          </p>
+    <section id="fleet" className="relative w-full bg-[#F5F5F5] rounded-t-[3rem] -mt-10 z-20 pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Header Section */}
+        <div className="grid md:grid-cols-2 gap-12 mb-16 items-start">
+          <div className="relative rounded-3xl overflow-hidden h-[300px] w-full">
+            <Image 
+              src="/hero.jpg" 
+              alt="Luxury driving" 
+              fill 
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-between p-8">
+              <div className="self-end bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
+                <span className="text-white font-bold tracking-widest text-sm">Veluxe</span>
+              </div>
+              <h3 className="text-white text-3xl font-bold">PREMIUM COMFORT EVERY DAY</h3>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight uppercase tracking-tight">
+              RENTAL HITS — CARS THAT ARE BOOKED FIRST!
+            </h2>
+            <p className="text-gray-600 text-lg max-w-md">
+              Popular cars that are in highest demand among our clients. They are booked first — for comfort, reliability and style.
+            </p>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {tiers.map((tier, index) => (
-            <Card
-              key={index}
-              className={`p-8 flex flex-col ${tier.highlighted ? "ring-2 ring-primary md:scale-105 shadow-xl" : ""}`}
-            >
-              {tier.highlighted && (
-                <div className="bg-primary text-primary-foreground text-sm font-semibold px-3 py-1 rounded-full w-fit mb-4">
-                  Most Popular
+        {/* Fleet Grid */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {cars.map((car, index) => (
+            <div key={index} className="bg-[#EAEAEA] rounded-[2rem] p-6 hover:bg-[#E2E2E2] transition duration-300">
+              <div className="text-center mb-6">
+                <p className="text-black font-semibold">{car.brand}</p>
+                <h4 className="text-xl text-black">{car.model}</h4>
+              </div>
+              
+              <div className="relative h-40 w-full mb-6 mix-blend-multiply">
+                <Image 
+                  src={car.image} 
+                  alt={`${car.brand} ${car.model}`} 
+                  fill 
+                  className="object-contain"
+                />
+              </div>
+
+              <div className="flex items-center gap-4 text-xs text-gray-500 font-medium mb-3">
+                <div className="flex items-center gap-1">
+                  <User size={14} /> {car.passengers}
                 </div>
-              )}
-              <h3 className="text-2xl font-bold text-foreground mb-2">{tier.name}</h3>
-              <p className="text-muted-foreground mb-4">{tier.description}</p>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-foreground">{tier.price}</span>
-                {tier.period && <span className="text-muted-foreground">{tier.period}</span>}
+                <div className="flex items-center gap-1">
+                  <Star size={14} className="fill-black text-black" /> {car.rating}
+                </div>
               </div>
-              <Button
-                className={`w-full mb-8 ${
-                  tier.highlighted ? "bg-primary hover:bg-primary/90" : "bg-secondary hover:bg-secondary/90"
-                }`}
-              >
-                {tier.cta}
-              </Button>
-              <div className="space-y-4 flex-1">
-                {tier.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-start gap-3">
-                    <Check className="text-primary flex-shrink-0 mt-1" size={20} />
-                    <span className="text-foreground">{feature}</span>
-                  </div>
-                ))}
+
+              <div className="text-xs text-gray-500 mb-6">
+                {car.year} • {car.transmission} • {car.fuel}
               </div>
-            </Card>
+
+              <div className="flex items-end justify-between">
+                <div>
+                  <span className="text-black font-bold text-xl">{car.price}</span>
+                  <span className="text-black font-medium text-sm"> / DAY</span>
+                </div>
+                <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center cursor-pointer hover:bg-black/80 transition group">
+                  <ArrowUpRight size={20} className="text-white group-hover:scale-110 transition" />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
+
+        {/* Action Button */}
+        <div className="flex justify-end">
+          <button className="bg-black text-white px-8 py-4 rounded-full font-bold hover:bg-black/80 transition">
+            Go to fleet
+          </button>
+        </div>
+
       </div>
     </section>
   )

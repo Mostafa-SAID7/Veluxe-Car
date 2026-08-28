@@ -1,15 +1,13 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Outfit } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const outfit = Outfit({ subsets: ["latin"], display: 'swap', variable: '--font-outfit' });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'Veluxe | Luxury Car Rental',
+  description: 'Premium luxury car rental service',
 }
 
 export default function RootLayout({
@@ -18,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${_geist.className} ${_geistMono.className} font-sans antialiased`}>
+    <html lang="en" className="dark">
+      <body className={`${outfit.variable} font-sans antialiased bg-background text-foreground`}>
         {children}
         <Analytics />
       </body>
