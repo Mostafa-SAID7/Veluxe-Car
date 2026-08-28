@@ -1,71 +1,80 @@
 import { ArrowUpRight } from "lucide-react"
-import Image from "next/image"
 
 export function Features() {
   return (
-    <section id="services" className="w-full bg-[#0A0A0A] py-24 px-4 sm:px-6 lg:px-8 relative z-10 -mt-[4rem] pb-32">
+    <section id="services" className="w-full bg-[#0A0A0A] pt-20 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        
-        <div className="text-center mb-16 space-y-6">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight uppercase tracking-tight max-w-4xl mx-auto">
+
+        {/* Section header */}
+        <div className="text-center mb-12 space-y-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight uppercase tracking-tight max-w-3xl mx-auto">
             WHY HUNDREDS OF CLIENTS TRUST US EVERY MONTH?
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             The most popular cars among our clients — a proven choice for any trip.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Card 1 */}
-          <div className="bg-white rounded-[2rem] p-8 flex flex-col justify-between h-[300px]">
+        {/* Cards grid */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+          {/* Card 1 — White */}
+          <div className="bg-white rounded-[2rem] p-7 flex flex-col justify-between min-h-[220px] group">
             <div>
-              <h3 className="text-black text-xl font-bold uppercase mb-4">FLEXIBLE RENTAL TERMS</h3>
-              <p className="text-gray-600 text-sm">
-                Possibility to rent for any term (from a few hours to a month). Options with and without deposit. Only favorable terms.
+              <h3 className="text-black text-base font-extrabold uppercase mb-3">
+                FLEXIBLE RENTAL TERMS
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Rent for any term — from a few hours to a month. Options with and without deposit. Only favorable terms.
               </p>
             </div>
-            <div className="relative h-32 mt-4 -mr-8 -mb-8 overflow-hidden rounded-br-[2rem]">
-                <div className="absolute right-0 bottom-0 w-32 h-32 rounded-full border-[16px] border-black opacity-80 translate-x-8 translate-y-8"></div>
+            <div className="mt-6 flex justify-end">
+              <div className="w-12 h-12 border-2 border-black/10 rounded-full flex items-center justify-center group-hover:bg-black group-hover:border-black transition cursor-pointer">
+                <span className="text-black group-hover:text-white transition text-xl">⊙</span>
+              </div>
             </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="bg-gradient-to-br from-[#1c1c1c] to-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 flex flex-col justify-between h-[300px] text-white group">
+          {/* Card 2 — Dark glassmorphic */}
+          <div className="bg-[#111111] border border-white/10 rounded-[2rem] p-7 flex flex-col justify-between min-h-[220px] group">
             <div>
-              <h3 className="text-xl font-bold uppercase mb-4">CAR DELIVERY</h3>
-              <p className="text-gray-400 text-sm">
-                Delivery to any point in the city, airport, hotel or to an individual address.
+              <h3 className="text-white text-base font-extrabold uppercase mb-3">
+                CAR DELIVERY
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Delivery to any point — city, airport, hotel or individual address.
               </p>
             </div>
-            <div className="flex justify-between items-end">
-              <span className="font-bold tracking-widest">Veluxe</span>
+            <div className="flex justify-between items-end mt-6">
+              <span className="text-white font-extrabold tracking-widest text-sm">Veluxe</span>
               <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition cursor-pointer">
-                <ArrowUpRight size={18} />
+                <ArrowUpRight size={16} className="text-white group-hover:text-black transition" />
               </div>
             </div>
           </div>
 
-          {/* Card 3 */}
-          <div className="bg-white rounded-[2rem] p-8 flex flex-col justify-between h-[300px]">
+          {/* Card 3 — White */}
+          <div className="bg-white rounded-[2rem] p-7 flex flex-col justify-between min-h-[220px] group sm:col-span-2 md:col-span-1">
             <div>
-              <h3 className="text-black text-xl font-bold uppercase mb-4">INSURANCE & SAFETY</h3>
-              <p className="text-gray-600 text-sm">
-                Description block for the site that will be placed in this block. This is an example layout.
+              <h3 className="text-black text-base font-extrabold uppercase mb-3">
+                INSURANCE & SAFETY
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Full insurance coverage included. Drive with confidence knowing you are fully protected.
               </p>
             </div>
-            <div className="flex justify-end">
-              <div className="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition cursor-pointer">
-                <ArrowUpRight size={18} />
+            <div className="mt-6 flex justify-end">
+              <div className="w-10 h-10 border border-gray-200 rounded-full flex items-center justify-center group-hover:bg-black group-hover:border-black transition cursor-pointer">
+                <ArrowUpRight size={16} className="text-gray-400 group-hover:text-white transition" />
               </div>
             </div>
           </div>
         </div>
-        
-        <div className="mt-20 text-center max-w-3xl mx-auto">
-           <p className="text-gray-400 text-xl font-light">
-             We have created a service where every detail works for your comfort and confidence. This is how easily and quickly you can rent a car without extra hassle.
-           </p>
-        </div>
+
+        {/* Tagline */}
+        <p className="text-gray-500 text-sm sm:text-base text-center mt-14 max-w-2xl mx-auto leading-relaxed">
+          We created a service where every detail works for your comfort and confidence. This is how easily and quickly you can rent a car without extra hassle.
+        </p>
 
       </div>
     </section>
