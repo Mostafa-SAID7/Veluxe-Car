@@ -127,4 +127,20 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Custom Scrollbar for Veluxe theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+  }
 }
