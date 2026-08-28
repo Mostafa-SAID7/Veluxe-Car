@@ -48,7 +48,7 @@ export function Testimonials() {
                   <Star key={i} size={16} className="fill-secondary text-secondary" />
                 ))}
               </div>
-              <p className="text-foreground mb-4 leading-relaxed">"{testimonial.content}"</p>
+              <p className="text-foreground mb-4 leading-relaxed">&quot;{testimonial.content}&quot;</p>
               <div>
                 <p className="font-semibold text-foreground">{testimonial.name}</p>
                 <p className="text-sm text-muted-foreground">{testimonial.role}</p>
